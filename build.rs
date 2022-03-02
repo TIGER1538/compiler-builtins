@@ -503,7 +503,7 @@ mod c {
         // sets of flags to the same source file.
         // Note: Out-of-line aarch64 atomics are not supported by the msvc toolchain (#430).
         let src_dir = root.join("lib/builtins");
-        if target_arch == "aarch64" && target_env != "msvc" {
+        if target_arch == "aarch64" && target_env != "msvc" && target_os != "ios" {
             // See below for why we're building these as separate libraries.
             build_aarch64_out_of_line_atomics_libraries(&src_dir, cfg);
 
